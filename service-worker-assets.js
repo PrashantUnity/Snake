@@ -33,7 +33,7 @@
       "url": "favicon.ico"
     },
     {
-      "hash": "sha256-reAQd+sai9qUQL0\/05fBnf7kgABkEitGuDp4YZhJ9mk=",
+      "hash": "sha256-cORALX2U9tjD8QBGh3+7Equ\/QjBfoROIZF\/49wCrzTk=",
       "url": "index.html"
     },
     {
@@ -81,7 +81,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-gac7ve9T5WU5ZIX0IZX+rzN\/2VWTGEYNBsoEl9V9hDM=",
+      "hash": "sha256-FijB94p43gHHtdcP2QwrowFQ+najw4QVxckJc0NCJQk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -153,7 +153,7 @@
       "url": "_framework\/MudBlazor.wasm"
     },
     {
-      "hash": "sha256-oqdfx4VjHWKixBymLExETHvvxrZAajb7aFILxj2Whyw=",
+      "hash": "sha256-0IcMxuYbcwKIb8UxOBTV8+cmskALF43a2OFJ9oybvUQ=",
       "url": "_framework\/Snake.wasm"
     },
     {
@@ -169,12 +169,8 @@
       "url": "_framework\/System.Collections.wasm"
     },
     {
-      "hash": "sha256-s8mJp8kTMm3fBTLgwVdxEFI+magsJRZCCdZVV8xzMVE=",
+      "hash": "sha256-3r3DAlOFZ5kBJpdn3JJMnQZIhCM94axnVZQMkmTDTF8=",
       "url": "_framework\/System.ComponentModel.Primitives.wasm"
-    },
-    {
-      "hash": "sha256-OXEGBebclaJVWOE1fsuCcA4cM3TCbOOBFZDfM8FvwqI=",
-      "url": "_framework\/System.ComponentModel.TypeConverter.wasm"
     },
     {
       "hash": "sha256-tqO2Y4mD7n9rI1g+QSashz42lb50djXmx3ECzGEqbcY=",
@@ -205,7 +201,7 @@
       "url": "_framework\/System.ObjectModel.wasm"
     },
     {
-      "hash": "sha256-jAB5mcgnK3qwA3R4wl1OjrkRud3aGT9fBxed6mdC6TM=",
+      "hash": "sha256-WAjyt3OULSukYChAdJkupy4lnrIIzebJdhccYgptXRU=",
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
@@ -233,10 +229,6 @@
       "url": "_framework\/System.Text.RegularExpressions.wasm"
     },
     {
-      "hash": "sha256-ebjgSlOswwIVl6vCKxSWfkZlcWzXp5P2U87gypSQ52U=",
-      "url": "_framework\/System.wasm"
-    },
-    {
       "hash": "sha256-e37jOHsqYZw+p+BauYq\/7VA+AdW4Xn9zRjmT5m5xxDo=",
       "url": "Snake.styles.css"
     },
@@ -249,5 +241,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "NU43aFBn"
+  "version": "C\/CWxJib"
 };
