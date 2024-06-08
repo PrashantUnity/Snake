@@ -46,6 +46,7 @@ namespace Snake.Pages
                 tail.IsfoodPosition = false;
             }
             snakeLength = snake.Count;
+            StartGame();
         }
 
         DialogOptions dialogOptions =
@@ -125,46 +126,50 @@ namespace Snake.Pages
         WindowSize? windowSize;
         readonly int gridDimentions = 64;
         readonly int inputDelayInMilliSecond = 400;
+
+
+        #region Experimental Time
+        
+        //private string lastInput;
+        //private bool canTakeInput = true;
+        //private System.Timers.Timer _inputKeyDelay;
+        //private System.Timers.Timer _snakeySpeed;
+
+        //protected override void OnInitialized()
+        //{
+        //    _inputKeyDelay = new System.Timers.Timer(100);
+        //    _inputKeyDelay.Elapsed += OnTimerElapsed;
+        //    _inputKeyDelay.AutoReset = false; // Ensures the timer runs only once per trigger
+
+
+        //    // for this feature wiil be implemented later.
+        //    _snakeySpeed = new System.Timers.Timer(100);
+        //    _snakeySpeed.Elapsed += OnTimerElapsed;
+        //    _snakeySpeed.AutoReset = false; // Ensures the timer runs only once per trigger
+        //}
          
 
-        private string lastInput;
-        private bool canTakeInput = true;
-        private System.Timers.Timer _inputKeyDelay;
-        private System.Timers.Timer _snakeySpeed;
+        //private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+        //{ 
+        //    InvokeAsync(() =>
+        //    {
+        //        canTakeInput = true;
+        //        _inputKeyDelay.Stop(); // Stop the timer until the next input event
+        //    });
+        //}
+        //public void Dispose()
+        //{
+        //    _inputKeyDelay.Dispose();
+        //}
 
-        protected override void OnInitialized()
-        {
-            _inputKeyDelay = new System.Timers.Timer(100);
-            _inputKeyDelay.Elapsed += OnTimerElapsed;
-            _inputKeyDelay.AutoReset = false; // Ensures the timer runs only once per trigger
-
-
-            // for this feature wiil be implemented later.
-            _snakeySpeed = new System.Timers.Timer(100);
-            _snakeySpeed.Elapsed += OnTimerElapsed;
-            _snakeySpeed.AutoReset = false; // Ensures the timer runs only once per trigger
-        }
-         
-
-        private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
-        { 
-            InvokeAsync(() =>
-            {
-                canTakeInput = true;
-                _inputKeyDelay.Stop(); // Stop the timer until the next input event
-            });
-        }
-
-        public void Dispose()
-        {
-            _inputKeyDelay.Dispose();
-        }
+        #endregion
         [Inject] protected IJSRuntime JSRuntime { get; set; } = null!;
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
                 await JSRuntime.InvokeVoidAsync("blazorKeyPressed", DotNetObjectReference.Create(this));
+                await JSRuntime.InvokeVoidAsync("blazorGestureDetected", DotNetObjectReference.Create(this));
                 await GetInnerDimensions();
             }
         }
@@ -201,34 +206,33 @@ namespace Snake.Pages
             snake.Enqueue(head);
             snakeLength++;
             StateHasChanged();
+            StartGame();
         }
 
         [JSInvokable]
         public async Task OnArrowKeyPressed(string key)
         {
+            //if (!canTakeInput) return;
             key = key.ToUpper();
-            if (canTakeInput)
-            {
 
-                if (left.Contains(key))
-                {
-                    await SnakeMovementControllingLoop('L');
-                }
-                if (right.Contains(key))
-                {
-                    await SnakeMovementControllingLoop('R');
-                }
-                if (up.Contains(key))
-                {
-                    await SnakeMovementControllingLoop('U');
-                }
-                if (down.Contains(key))
-                {
-                    await SnakeMovementControllingLoop('D');
-                }
-                canTakeInput = false;
-                _inputKeyDelay.Start(); 
+            if (left.Contains(key))
+            {
+                await SnakeMovementControllingLoop('L');
             }
+            if (right.Contains(key))
+            {
+                await SnakeMovementControllingLoop('R');
+            }
+            if (up.Contains(key))
+            {
+                await SnakeMovementControllingLoop('U');
+            }
+            if (down.Contains(key))
+            {
+                await SnakeMovementControllingLoop('D');
+            }
+            //canTakeInput = false;
+            //_inputKeyDelay.Start();  
             
         }
 
