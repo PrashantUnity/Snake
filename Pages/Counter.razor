@@ -1,0 +1,22 @@
+﻿@page "/counter"
+
+ 
+
+@code {
+    [Inject] protected IJSRuntime JSRuntime { get; set; } = null!;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("blazorKeyPressed", DotNetObjectReference.Create(this));
+        }
+    }
+    [JSInvokable]
+    public void OnArrowKeyPressed(string key)
+    { 
+        if (key == "Enter")
+        {
+            
+        }
+    }
+}
